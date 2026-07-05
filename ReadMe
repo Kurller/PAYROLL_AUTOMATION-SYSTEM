@@ -1,0 +1,481 @@
+# Payroll Automation System API
+
+## Project Overview
+
+Payroll Automation System is a production-oriented REST API built with Django and Django REST Framework for managing employee salary processing and payment automation. The application streamlines payroll operations by allowing organizations to manage employees, generate salary transactions, process payments through Paystack, and monitor transaction history securely.
+
+The project demonstrates backend engineering concepts such as authentication, authorization, payment integration, API documentation, logging, production deployment practices, and database management.
+
+---
+
+## Features
+
+### User Authentication and Authorization
+
+* JWT authentication using Simple JWT
+* Access token expiration configuration
+* Refresh token support
+* Role-based access control
+
+Supported roles:
+
+* Admin
+* HR
+* Finance
+
+Role capabilities:
+
+**Admin**
+
+* Manage users
+* Access system configuration
+* Test payment integration
+
+**HR**
+
+* Manage employee information
+* Create payroll records
+
+**Finance**
+
+* Process payments
+* Create payment recipients
+* Execute salary transactions
+
+---
+
+## Core Modules
+
+### Accounts Module
+
+Handles:
+
+* User registration
+* User profiles
+* Role management
+* Permission management
+
+Example User Profile model:
+
+```python
+class UserProfile(models.Model):
+
+    ROLE_CHOICES = [
+        ("admin", "Admin"),
+        ("hr", "HR"),
+        ("finance", "Finance")
+    ]
+
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE
+    )
+
+    role = models.CharField(
+        max_length=20,
+        choices=ROLE_CHOICES
+    )
+```
+
+---
+
+### Employees Module
+
+Handles employee information including:
+
+* Full name
+* Email
+* Salary
+* Bank details
+* Recipient code
+
+Example employee data:
+
+```json
+{
+    "full_name":"John Doe",
+    "email":"john@example.com",
+    "salary":"250000",
+    "bank_name":"GTBank",
+    "account_number":"0123456789"
+}
+```
+
+---
+
+### Payroll Module
+
+Responsible for:
+
+* Salary generation
+* Salary transactions
+* Batch processing
+* Payroll history
+
+Transaction statuses:
+
+* Pending
+* Success
+* Failed
+
+---
+
+### Payments Module
+
+Responsible for:
+
+* Paystack recipient creation
+* Single salary payment processing
+* Bulk payment processing
+* Payment verification
+
+---
+
+### Logs Module
+
+Stores application activity logs for:
+
+* Errors
+* Payment activities
+* Authentication events
+* Transaction processing
+
+Log file:
+
+```text
+payroll.log
+```
+
+---
+
+## Technologies Used
+
+Backend:
+
+* Python
+* Django
+* Django REST Framework
+
+Authentication:
+
+* Simple JWT
+
+Database:
+
+* PostgreSQL
+
+Payment Gateway:
+
+* Paystack API
+
+API Documentation:
+
+* Swagger
+* drf-yasg
+
+Deployment:
+
+* Gunicorn
+* WhiteNoise
+* Docker
+* Render
+
+Environment Management:
+
+* python-decouple
+
+---
+
+## System Architecture
+
+Client Request
+
+↓
+
+JWT Authentication
+
+↓
+
+Role Permission Validation
+
+↓
+
+API Views
+
+↓
+
+Business Logic Layer
+
+↓
+
+PostgreSQL Database
+
+↓
+
+Paystack Payment Gateway
+
+↓
+
+Response
+
+---
+
+## API Endpoints
+
+### Authentication Endpoints
+
+Generate JWT Token
+
+```http
+POST /api/token/
+```
+
+Request:
+
+```json
+{
+    "username":"admin",
+    "password":"password123"
+}
+```
+
+Response:
+
+```json
+{
+    "refresh":"token",
+    "access":"token"
+}
+```
+
+Refresh Token:
+
+```http
+POST /api/token/refresh/
+```
+
+---
+
+### Employee Endpoints
+
+Create employee:
+
+```http
+POST /api/employees/
+```
+
+Retrieve employees:
+
+```http
+GET /api/employees/
+```
+
+Retrieve single employee:
+
+```http
+GET /api/employees/{id}/
+```
+
+Update employee:
+
+```http
+PUT /api/employees/{id}/
+```
+
+Delete employee:
+
+```http
+DELETE /api/employees/{id}/
+```
+
+---
+
+### Payment Endpoints
+
+Create recipient:
+
+```http
+POST /api/payments/recipient/{employee_id}/
+```
+
+Process single payment:
+
+```http
+POST /api/payments/process/{transaction_id}/
+```
+
+Process all pending payments:
+
+```http
+POST /api/payments/process-all/
+```
+
+Paystack test endpoint:
+
+```http
+GET /api/payments/test/
+```
+
+---
+
+## Authentication
+
+The API uses Bearer token authentication.
+
+Header:
+
+```text
+Authorization: Bearer your_access_token
+```
+
+Example:
+
+```text
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJh...
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file in the project root.
+
+```env
+SECRET_KEY=your_secret_key
+
+DEBUG=False
+
+PAYSTACK_SECRET_KEY=your_paystack_secret_key
+
+DB_NAME=payroll_db
+
+DB_USER=postgres
+
+DB_PASSWORD=your_password
+
+DB_HOST=localhost
+
+DB_PORT=5432
+
+ALLOWED_HOSTS=127.0.0.1,localhost
+```
+
+---
+
+## Installation
+
+Clone repository:
+
+```bash
+git clone repository-url
+```
+
+Move into project:
+
+```bash
+cd payroll_automation
+```
+
+Create virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate environment:
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run migrations:
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Create superuser:
+
+```bash
+python manage.py createsuperuser
+```
+
+Start server:
+
+```bash
+python manage.py runserver
+```
+
+---
+
+## Docker Deployment
+
+Build containers:
+
+```bash
+docker compose up --build
+```
+
+---
+
+## Swagger Documentation
+
+Swagger interface:
+
+```text
+http://localhost:8000/swagger/
+```
+
+---
+
+## Security Features
+
+* JWT authentication
+* Role-based access control
+* Secure environment variables
+* Protected endpoints
+* PostgreSQL database
+* Secure production settings
+* WhiteNoise static file serving
+
+---
+
+## Future Improvements
+
+* Celery for asynchronous salary processing
+* Redis task queue
+* Email notifications
+* Payroll analytics dashboard
+* Scheduled salary execution
+* Multi-company support
+* Unit and integration testing
+* CI/CD pipeline using GitHub Actions
+
+---
+
+## Author
+
+Kolawole Oladejo
+
+Skills:
+
+* Full Stack Development
+* Python Development
+* Data Analysis
+* Machine Learning
+* API Development
+
+---
+
+## License
+
+This project is intended for educational, portfolio, and demonstration purposes.
