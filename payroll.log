@@ -1,0 +1,481 @@
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/dashboard.css
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/nav_sidebar.css
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/responsive.css
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 246, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\admin\sites.py", line 266, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\admin\sites.py", line 235, in inner
+    if not self.has_permission(request):
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\admin\sites.py", line 208, in has_permission
+    return request.user.is_active and request.user.is_staff
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+    ~~~~~~~~~~~^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+                    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 40, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+                                            ~~~~~~~~^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 20, in get_user
+    request._cached_user = auth.get_user(request)
+                           ~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 321, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 95, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 55, in __getitem__
+    return self._session[key]
+           ^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 251, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 246, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\admin\sites.py", line 266, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\admin\sites.py", line 235, in inner
+    if not self.has_permission(request):
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\admin\sites.py", line 208, in has_permission
+    return request.user.is_active and request.user.is_staff
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+    ~~~~~~~~~~~^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+                    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 40, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+                                            ~~~~~~~~^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 20, in get_user
+    request._cached_user = auth.get_user(request)
+                           ~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 321, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 95, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 55, in __getitem__
+    return self._session[key]
+           ^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 251, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\kola\PAYROL\payroll_automation\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+Watching for file changes with StatReloader
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/nav_sidebar.css
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/nav_sidebar.js
+Watching for file changes with StatReloader
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Watching for file changes with StatReloader
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/js/nav_sidebar.js
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/js/nav_sidebar.js
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Unauthorized: /api/payments/test/
+Not Found: /api/token/
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Unauthorized: /api/payments/recipient/1/
+Unauthorized: /api/payments/recipient/1/
+Not Found: /api/refresh/
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Forbidden: /api/payments/recipient/1/
+Forbidden: /api/payments/recipient/1/
+Watching for file changes with StatReloader
+Forbidden: /api/payments/recipient/1/
+C:\Users\kola\PAYROL\payroll_automation\accounts\permissions.py changed, reloading.
+Watching for file changes with StatReloader
+Forbidden: /api/payments/recipient/1/
+Forbidden: /api/payments/recipient/4/
+Forbidden: /api/payments/recipient/4/
+Watching for file changes with StatReloader
+Unauthorized: /api/token/
+Not Found: /api/payments/recipient/4/
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /accounts/login/
+Not Found: /favicon.ico
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader

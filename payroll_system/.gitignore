@@ -1,0 +1,17 @@
+venv/
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+payroll.log
+staticfiles/
+media/
+
+db.sqlite3
+
+.vscode/
+.idea/
+
+*.log
