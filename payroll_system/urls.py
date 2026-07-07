@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
-
+from accounts.views import test_auth
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView
@@ -47,6 +47,7 @@ urlpatterns = [
         "api/payments/",
         include("payments.urls")
     ),
+    path("test-auth/", test_auth),
 
     # JWT endpoints
     path(

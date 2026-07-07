@@ -479,3 +479,30 @@ Not Found: /favicon.ico
 C:\Users\kola\PAYROL\payroll_automation\payroll_system\urls.py changed, reloading.
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Unauthorized: /api/payments/process-all/
+Not Found: /accounts/login/
+Unauthorized: /api/payments/process-all/
+Unauthorized: /api/payments/process/1/
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Unauthorized: /api/payments/process-all/
+Unauthorized: /api/payments/process-all/
+Unauthorized: /api/payments/test/
+Unauthorized: /api/payments/process-all/
+C:\Users\kola\PAYROL\payroll_automation\payroll_system\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Unauthorized: /api/payments/process-all/
+Unauthorized: /api/payments/test/
+Unauthorized: /api/payments/process-all/
+Unauthorized: /api/payments/process-all/
+Unauthorized: /api/payments/process-all/
+Forbidden: /api/payments/process-all/
+Forbidden: /api/payments/process/1/
+Forbidden: /api/payments/recipient/4/
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader

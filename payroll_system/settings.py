@@ -18,7 +18,7 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config(
     "DEBUG",
-    default=False,
+    default=True,
     cast=bool
 )
 
@@ -46,11 +46,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    # Third party
+    # Third-party apps
     "rest_framework",
     "rest_framework_simplejwt",
     "corsheaders",
-     "drf_yasg",
+    "drf_yasg",
+
     # Local apps
     "accounts",
     "employees",
@@ -85,11 +86,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-STATICFILES_STORAGE = (
-    "whitenoise.storage.CompressedManifestStaticFilesStorage"
-)
+
 # =====================================
-# URL configuration
+# URL Configuration
 # =====================================
 
 ROOT_URLCONF = "payroll_system.urls"
@@ -132,7 +131,7 @@ WSGI_APPLICATION = "payroll_system.wsgi.application"
 
 
 # =====================================
-# PostgreSQL
+# PostgreSQL Database
 # =====================================
 
 DATABASES = {
@@ -168,7 +167,7 @@ DATABASES = {
 
 
 # =====================================
-# REST framework
+# REST Framework
 # =====================================
 
 REST_FRAMEWORK = {
@@ -176,12 +175,16 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
 
         "rest_framework_simplejwt.authentication.JWTAuthentication"
+    ],
+
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
     ]
 }
 
 
 # =====================================
-# JWT settings
+# JWT Settings
 # =====================================
 
 SIMPLE_JWT = {
@@ -204,7 +207,38 @@ SIMPLE_JWT = {
 
 
 # =====================================
-# Password validation
+# Swagger Settings
+# =====================================
+
+SWAGGER_SETTINGS = {
+
+    "USE_SESSION_AUTH": False,
+
+    "SECURITY_DEFINITIONS": {
+
+        "Bearer": {
+
+            "type": "apiKey",
+
+            "name": "Authorization",
+
+            "in": "header",
+
+            "description":
+            "Enter JWT token: Bearer <access_token>"
+        }
+    },
+
+    "SECURITY_REQUIREMENTS": [
+        {
+            "Bearer": []
+        }
+    ]
+}
+
+
+# =====================================
+# Password Validation
 # =====================================
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -245,7 +279,7 @@ USE_TZ = True
 
 
 # =====================================
-# Static files
+# Static Files
 # =====================================
 
 STATIC_URL = "/static/"
@@ -261,22 +295,32 @@ STATICFILES_STORAGE = (
 # CORS
 # =====================================
 
+CORS_ALLOW_ALL_ORIGINS = DEBUG
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000"
+    "http://localhost:3000",
 ]
 
 
 # =====================================
-# Production security
+# Production Security
 # =====================================
 
-SESSION_COOKIE_SECURE = True
+if not DEBUG:
 
-CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
 
-SECURE_BROWSER_XSS_FILTER = True
+    CSRF_COOKIE_SECURE = True
 
-X_FRAME_OPTIONS = "DENY"
+    SECURE_SSL_REDIRECT = True
+
+    SECURE_HSTS_SECONDS = 31536000
+
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+    SECURE_HSTS_PRELOAD = True
+
+    X_FRAME_OPTIONS = "DENY"
 
 
 # =====================================
@@ -311,7 +355,7 @@ LOGGING = {
 
 
 # =====================================
-# Default primary key
+# Default PK
 # =====================================
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
