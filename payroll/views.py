@@ -15,6 +15,18 @@ from employees.models import Employee
 from .models import SalaryBatch, SalaryTransaction
 from .serializers import PayrollUploadSerializer
 
+
+class SalaryTransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SalaryTransaction
+        fields = "__all__"
+
+
+class SalaryTransactionListView(ListAPIView):
+    queryset = SalaryTransaction.objects.all()
+    serializer_class = SalaryTransactionSerializer
+
+
 class PayrollUploadView(APIView):
     parser_classes = (MultiPartParser, FormParser)
 
@@ -38,25 +50,19 @@ class PayrollUploadView(APIView):
         if not serializer.is_valid():
             return Response(
                 serializer.errors,
-                status=status.HTTP_400_BAD_REQUEST
+                status=status.HTTP_400_BAD_REQUEST,
             )
 
         uploaded_file = request.FILES["file"]
 
-        extension = (
-            uploaded_file.name
-            .split(".")[-1]
-            .lower()
-        )
+        extension = uploaded_file.name.split(".")[-1].lower()
 
         try:
 
-            # Detect actual file content
             uploaded_file.seek(0)
             file_header = uploaded_file.read(4)
             uploaded_file.seek(0)
 
-            # XLSX files begin with PK
             if file_header.startswith(b"PK"):
 
                 df = pd.read_excel(
@@ -92,7 +98,6 @@ class PayrollUploadView(APIView):
                     status=400,
                 )
 
-            # Normalize columns
             df.columns = (
                 df.columns
                 .str.replace("\ufeff", "", regex=False)
@@ -110,13 +115,11 @@ class PayrollUploadView(APIView):
             ]
 
             missing = [
-                col
-                for col in required_columns
+                col for col in required_columns
                 if col not in df.columns
             ]
 
             if missing:
-
                 return Response(
                     {
                         "status": False,
@@ -130,19 +133,18 @@ class PayrollUploadView(APIView):
             for index, row in df.iterrows():
 
                 if pd.isna(row["employee_id"]):
-                    errors.append(f"Row {index + 1}: Employee ID missing")
+                    errors.append(f"Row {index+1}: Employee ID missing")
 
                 if pd.isna(row["account_number"]):
-                    errors.append(f"Row {index + 1}: Account number missing")
+                    errors.append(f"Row {index+1}: Account number missing")
 
                 if pd.isna(row["amount"]):
-                    errors.append(f"Row {index + 1}: Amount missing")
+                    errors.append(f"Row {index+1}: Amount missing")
 
                 elif float(row["amount"]) <= 0:
-                    errors.append(f"Row {index + 1}: Invalid amount")
+                    errors.append(f"Row {index+1}: Invalid amount")
 
             if errors:
-
                 return Response(
                     {
                         "status": False,
@@ -170,7 +172,6 @@ class PayrollUploadView(APIView):
                 )
 
                 if not created:
-
                     employee.full_name = str(row["full_name"])
                     employee.bank_name = str(row["bank_name"])
                     employee.bank_code = str(row["bank_code"])
@@ -196,7 +197,6 @@ class PayrollUploadView(APIView):
             )
 
         except Exception as e:
-
             return Response(
                 {
                     "status": False,
