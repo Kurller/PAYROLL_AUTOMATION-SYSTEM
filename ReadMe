@@ -1,118 +1,160 @@
 # Payroll Automation System API
 
-## Project Overview
+A production-oriented REST API built with Django and Django REST Framework for automating payroll processing, employee management, and salary payments.
 
-Payroll Automation System is a production-oriented REST API built with Django and Django REST Framework for managing employee salary processing and payment automation. The application streamlines payroll operations by allowing organizations to manage employees, generate salary transactions, process payments through Paystack, and monitor transaction history securely.
-
-The project demonstrates backend engineering concepts such as authentication, authorization, payment integration, API documentation, logging, production deployment practices, and database management.
+The project demonstrates modern backend engineering practices including JWT authentication, REST API development, PostgreSQL integration, payment gateway integration, Docker containerization, production deployment, and API documentation.
 
 ---
 
-## Features
+# Live Demo
 
-### User Authentication and Authorization
+### API
 
-* JWT authentication using Simple JWT
-* Access token expiration configuration
-* Refresh token support
-* Role-based access control
+**Production URL**
 
-Supported roles:
+```
+https://payroll-automation-system-d96u.onrender.com/
+```
+
+> **Note**
+>
+> This project is hosted using Render's free tier. The live API or database may become unavailable when the free database expires or the service is suspended.
+>
+> A complete walkthrough of the project is permanently available in the demo video below.
+
+### Project Demo (YouTube)
+
+**Video Demonstration**
+
+```
+https://www.youtube.com/watch?v=LMEh8cRZY5U
+```
+
+The demo covers:
+
+* Project architecture
+* Authentication
+* JWT login
+* Employee management
+* Payroll upload
+* Salary transaction generation
+* Paystack integration
+* Swagger API documentation
+* PostgreSQL database
+* Docker deployment
+
+---
+
+# API Documentation
+
+Swagger UI
+
+```
+https://payroll-automation-system-d96u.onrender.com/swagger/
+```
+
+ReDoc
+
+```
+https://payroll-automation-system-d96u.onrender.com/redoc/
+```
+
+---
+
+# Project Overview
+
+Payroll Automation System is designed to automate salary processing for organizations.
+
+The application enables HR and Finance teams to upload payroll data, generate salary transactions, process payments through Paystack, and maintain complete payroll history through a secure REST API.
+
+The project follows production-ready backend development practices and is suitable as a portfolio project demonstrating real-world software engineering concepts.
+
+---
+
+# Features
+
+## Authentication
+
+* JWT Authentication (Simple JWT)
+* Access Token
+* Refresh Token
+* Protected API endpoints
+* Role-Based Access Control
+
+Supported Roles
 
 * Admin
 * HR
 * Finance
 
-Role capabilities:
-
-**Admin**
+### Admin
 
 * Manage users
-* Access system configuration
+* Configure system
 * Test payment integration
 
-**HR**
+### HR
 
-* Manage employee information
-* Create payroll records
+* Manage employees
+* Upload payroll
+* Generate salary batches
 
-**Finance**
+### Finance
 
-* Process payments
-* Create payment recipients
-* Execute salary transactions
-
----
-
-## Core Modules
-
-### Accounts Module
-
-Handles:
-
-* User registration
-* User profiles
-* Role management
-* Permission management
-
-Example User Profile model:
-
-```python
-class UserProfile(models.Model):
-
-    ROLE_CHOICES = [
-        ("admin", "Admin"),
-        ("hr", "HR"),
-        ("finance", "Finance")
-    ]
-
-    user = models.OneToOneField(
-        User,
-        on_delete=models.CASCADE
-    )
-
-    role = models.CharField(
-        max_length=20,
-        choices=ROLE_CHOICES
-    )
-```
+* Process salary payments
+* Manage payment recipients
+* Execute bulk salary transfers
 
 ---
 
-### Employees Module
+# Core Modules
 
-Handles employee information including:
-
-* Full name
-* Email
-* Salary
-* Bank details
-* Recipient code
-
-Example employee data:
-
-```json
-{
-    "full_name":"John Doe",
-    "email":"john@example.com",
-    "salary":"250000",
-    "bank_name":"GTBank",
-    "account_number":"0123456789"
-}
-```
-
----
-
-### Payroll Module
+## Accounts
 
 Responsible for:
 
-* Salary generation
-* Salary transactions
-* Batch processing
+* User registration
+* Authentication
+* User profiles
+* Role management
+
+---
+
+## Employees
+
+Responsible for:
+
+* Employee records
+* Bank information
+* Salary information
+* Recipient information
+
+Employee information includes:
+
+* Full name
+* Employee ID
+* Email
+* Bank name
+* Bank code
+* Account number
+
+---
+
+## Payroll
+
+Responsible for:
+
+* Payroll upload (CSV / Excel)
+* Salary batch creation
+* Salary transaction generation
 * Payroll history
 
-Transaction statuses:
+Supported file formats
+
+* CSV
+* XLSX
+
+Transaction Status
 
 * Pending
 * Success
@@ -120,296 +162,267 @@ Transaction statuses:
 
 ---
 
-### Payments Module
+## Payments
 
 Responsible for:
 
 * Paystack recipient creation
-* Single salary payment processing
-* Bulk payment processing
+* Single payment processing
+* Bulk salary processing
 * Payment verification
 
 ---
 
-### Logs Module
+## Logs
 
-Stores application activity logs for:
+Application logs include:
 
-* Errors
-* Payment activities
 * Authentication events
-* Transaction processing
+* Errors
+* Payment processing
+* Salary transactions
 
-Log file:
+Log file
 
-```text
+```
 payroll.log
 ```
 
 ---
 
-## Technologies Used
+# Technologies Used
 
-Backend:
+### Backend
 
 * Python
 * Django
 * Django REST Framework
 
-Authentication:
+### Authentication
 
-* Simple JWT
+* JWT (Simple JWT)
 
-Database:
+### Database
 
 * PostgreSQL
 
-Payment Gateway:
+### Payment Gateway
 
 * Paystack API
 
-API Documentation:
+### Documentation
 
 * Swagger
 * drf-yasg
 
-Deployment:
+### Deployment
 
+* Render
 * Gunicorn
 * WhiteNoise
 * Docker
-* Render
 
-Environment Management:
+### Environment Management
 
 * python-decouple
 
 ---
 
-## System Architecture
+# System Architecture
 
-Client Request
+```
+                Client
 
-↓
+                   │
 
-JWT Authentication
+                   ▼
 
-↓
+        JWT Authentication
 
-Role Permission Validation
+                   │
 
-↓
+                   ▼
 
-API Views
+        Permission Validation
 
-↓
+                   │
 
-Business Logic Layer
+                   ▼
 
-↓
+          Django REST API
 
-PostgreSQL Database
+                   │
 
-↓
+                   ▼
 
-Paystack Payment Gateway
+         Business Logic Layer
 
-↓
+                   │
 
-Response
+                   ▼
+
+          PostgreSQL Database
+
+                   │
+
+                   ▼
+
+          Paystack REST API
+
+                   │
+
+                   ▼
+
+               Response
+```
 
 ---
 
-## API Endpoints
+# API Endpoints
 
-### Authentication Endpoints
+## Authentication
 
-Generate JWT Token
+Generate Token
 
-```http
+```
 POST /api/token/
 ```
 
-Request:
+Refresh Token
 
-```json
-{
-    "username":"admin",
-    "password":"password123"
-}
 ```
-
-Response:
-
-```json
-{
-    "refresh":"token",
-    "access":"token"
-}
-```
-
-Refresh Token:
-
-```http
 POST /api/token/refresh/
 ```
 
 ---
 
-### Employee Endpoints
+## Payroll
 
-Create employee:
+Upload Payroll
 
-```http
-POST /api/employees/
+```
+POST /api/payroll/upload/
 ```
 
-Retrieve employees:
+Retrieve Transactions
 
-```http
-GET /api/employees/
 ```
-
-Retrieve single employee:
-
-```http
-GET /api/employees/{id}/
-```
-
-Update employee:
-
-```http
-PUT /api/employees/{id}/
-```
-
-Delete employee:
-
-```http
-DELETE /api/employees/{id}/
+GET /api/payroll/transactions/
 ```
 
 ---
 
-### Payment Endpoints
+## Payments
 
-Create recipient:
+Create Recipient
 
-```http
+```
 POST /api/payments/recipient/{employee_id}/
 ```
 
-Process single payment:
+Process Salary
 
-```http
+```
 POST /api/payments/process/{transaction_id}/
 ```
 
-Process all pending payments:
+Process All Payments
 
-```http
+```
 POST /api/payments/process-all/
 ```
 
-Paystack test endpoint:
+Verify Payment
 
-```http
+```
 GET /api/payments/test/
 ```
 
 ---
 
-## Authentication
+# Authentication
 
-The API uses Bearer token authentication.
+All protected endpoints require a Bearer Token.
 
-Header:
+Example
 
-```text
-Authorization: Bearer your_access_token
 ```
-
-Example:
-
-```text
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJh...
+Authorization: Bearer your_access_token
 ```
 
 ---
 
-## Environment Variables
+# Environment Variables
 
-Create a `.env` file in the project root.
+Create a `.env` file.
 
 ```env
 SECRET_KEY=your_secret_key
 
 DEBUG=False
 
+DATABASE_URL=your_postgresql_connection_string
+
 PAYSTACK_SECRET_KEY=your_paystack_secret_key
 
-DB_NAME=payroll_db
-
-DB_USER=postgres
-
-DB_PASSWORD=your_password
-
-DB_HOST=localhost
-
-DB_PORT=5432
-
-ALLOWED_HOSTS=127.0.0.1,localhost
+ALLOWED_HOSTS=127.0.0.1,localhost,your-render-domain.onrender.com
 ```
 
 ---
 
-## Installation
+# Local Installation
 
-Clone repository:
-
-```bash
-git clone repository-url
-```
-
-Move into project:
+Clone repository
 
 ```bash
-cd payroll_automation
+git clone https://github.com/yourusername/payroll-automation-system.git
 ```
 
-Create virtual environment:
+Move into project
+
+```bash
+cd payroll-automation-system
+```
+
+Create virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate environment:
+Activate environment
 
-Windows:
+Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-Install dependencies:
+Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run migrations:
+Run migrations
 
 ```bash
-python manage.py makemigrations
 python manage.py migrate
 ```
 
-Create superuser:
+Create superuser
 
 ```bash
 python manage.py createsuperuser
 ```
 
-Start server:
+Run server
 
 ```bash
 python manage.py runserver
@@ -417,9 +430,9 @@ python manage.py runserver
 
 ---
 
-## Docker Deployment
+# Docker
 
-Build containers:
+Build and start the application
 
 ```bash
 docker compose up --build
@@ -427,55 +440,89 @@ docker compose up --build
 
 ---
 
-## Swagger Documentation
+# Testing
 
-Swagger interface:
+Generate JWT Token
 
-```text
-http://localhost:8000/swagger/
+```
+POST /api/token/
+```
+
+Authorize in Swagger using
+
+```
+Bearer your_access_token
+```
+
+Upload a payroll CSV or Excel file
+
+```
+POST /api/payroll/upload/
+```
+
+Retrieve transactions
+
+```
+GET /api/payroll/transactions/
 ```
 
 ---
 
-## Security Features
+# Future Improvements
 
-* JWT authentication
-* Role-based access control
-* Secure environment variables
-* Protected endpoints
-* PostgreSQL database
-* Secure production settings
-* WhiteNoise static file serving
-
----
-
-## Future Improvements
-
-* Celery for asynchronous salary processing
-* Redis task queue
+* Celery background tasks
+* Redis queue
 * Email notifications
-* Payroll analytics dashboard
-* Scheduled salary execution
+* Payroll scheduling
 * Multi-company support
-* Unit and integration testing
-* CI/CD pipeline using GitHub Actions
+* Automated testing
+* GitHub Actions CI/CD
+* Payroll analytics dashboard
+* Audit trail improvements
 
 ---
 
-## Author
+# Portfolio Notes
 
-Kolawole Oladejo
+This project was built to demonstrate production-ready backend development skills.
 
-Skills:
+Key concepts demonstrated include:
 
-* Full Stack Development
-* Python Development
-* Data Analysis
-* Machine Learning
-* API Development
+* REST API Design
+* Authentication & Authorization
+* PostgreSQL
+* Django REST Framework
+* Docker
+* Swagger Documentation
+* Production Deployment
+* Environment Variable Management
+* Payment Gateway Integration
+* File Upload Processing (CSV & Excel)
+* Logging
+* Clean Project Structure
 
 ---
 
-## License
+# Author
 
-This project is intended for educational, portfolio, and demonstration purposes.
+**Kolawole Oladejo**
+
+Backend Developer | Python | Django | REST APIs | PostgreSQL | Docker
+
+GitHub
+
+```
+https://github.com/kurller
+```
+
+LinkedIn
+
+```
+https://linkedin.com/in/kolaquadry
+```
+
+---
+
+
+
+This project was developed for educational purposes, portfolio demonstration, and technical interviews.
